@@ -37,6 +37,78 @@
       to gain a more complete understanding of web design, which I can pair
       with knowledge of newer iterations of programming languages like C++ and
       C#.</p>
+
+      <h1><font color="FF0000">ADDENDUM:</font></h1>
+      <p>There was an interesting wrinkle using GitHub Pages, which complicated
+      the git push.  GitHub made me do an extra step of choosing a template,
+      for which I chose minimal.  I did not stop to think GitHub would tweak
+      the HTML to make this happen.  GitHub created a new _config.yml file.
+      </p>
+
+      <p>
+      <code>
+      $ git push origin master<br>
+      To https://github.com/johannsp/prework-about-me.git<br>
+      &nbsp;! [rejected]        master -&gt; master (non-fast-forward)<br>
+      error: failed to push some refs to 'https://github.com/johannsp/prework-about-me.git'<br>
+      hint: Updates were rejected because the tip of your current branch is behind<br>
+      hint: its remote counterpart. Integrate the remote changes (e.g.<br>
+      hint: 'git pull ...') before pushing again.<br>
+      hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+      </code>
+      </p>
+
+      <p>
+      I read and followed some advice at:<br>
+      <a href="https://stackoverflow.com/questions/2432579/git-your-branch-is-ahead-by-x-commits">
+      https://stackoverflow.com/questions/2432579/git-your-branch-is-ahead-by-x-commits</a>
+      </p>
+
+      <p>
+      This advice led me try a git fetch command
+      </p>
+
+      <p>
+      <code>
+      $ git fetch origin<br>
+      remote: Enumerating objects: 4, done.<br>
+      remote: Counting objects: 100% (4/4), done.<br>
+      remote: Compressing objects: 100% (2/2), done.<br>
+      remote: Total 3 (delta 1), reused 1 (delta 0), pack-reused 0<br>
+      Unpacking objects: 100% (3/3), 292 bytes | 3.00 KiB/s, done.<br>
+      From https://github.com/johannsp/prework-about-me<br>
+      &nbsp;&nbsp;&nbsp;d73e853..c0eec5b  master     -&gt; origin/master
+      </code>
+      </p>
+
+      <p>
+      This command did not help, as the same error happened trying the git push
+      command.  What did work correctly was to do a proper pull command, which
+      brought over _config.yml.
+      </p>
+
+      <p>
+      <code>
+      $ git pull origin master<br>
+      From https://github.com/johannsp/prework-about-me<br>
+       * branch            master     -&gt; FETCH_HEAD<br>
+      Merge made by the 'recursive' strategy.<br>
+      &nbsp;_config.yml | 1 +<br>
+      &nbsp;1 file changed, 1 insertion(+)<br>
+      &nbsp;create mode 100644 _config.yml
+      </code>
+      </p>
+
+      <p>
+      The git push command worked after that, although I decided to write this
+      addendum, which required a further update to GitHub.  As a further note
+      to self I used code tags instead of pre tags for the monospaced samples,
+      which necessitated adding &lt;br&gt;, escaping greater than sign in the
+      "arrow" output, and some non-breaking space entitities (&amp;nbsp;) to
+      protect real indentation.  I can use this addendum as a check of what I
+      already knew about HTML as I started this course.
+      </p>
+
     </section>
 
     <footer id="footer">
